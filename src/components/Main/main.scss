@@ -1,0 +1,227 @@
+@import '../../styles/variables.scss';
+
+
+.main {
+
+     position: absolute;
+     width: 80%;
+ 
+     top: 10%;
+     left: 50%;
+     transform: translate(-50%, 0);
+ 
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ 
+     &__logo {
+      cursor: pointer;
+     }
+ 
+    &__mock-button {
+         margin-top: 10%;
+     
+         background-color: transparent;
+         border: none;
+         cursor: pointer;
+         transition:   transform 1s ease-out;
+         &:hover {
+           filter:brightness(0.8)
+         }
+    }
+    &__slogan {
+     margin-top: 10%;
+ 
+     font-style: normal;
+     font-weight: 600;
+     font-size: 18px;
+     line-height: 28px;
+     text-align: center;
+     letter-spacing: 0.09em;
+     text-transform: uppercase;
+ 
+     color: $main-text-color;
+ 
+     text-shadow: 4px 1px 8px rgba(255, 255, 255, 0.8);
+    }
+    & nav {
+     display: flex;
+     flex-direction: column;
+     align-items:center;
+     justify-content: center;
+    }
+ }
+ 
+ .mainActive {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding-top: 10%;
+  
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      background-color: rgba(0, 0, 0, 0.5);
+
+     & nav {
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content: center;
+     }
+ }
+
+@media (min-width: 768px) {
+
+.main {
+    &__logo {
+     width: 100%;
+     cursor: pointer;
+    }
+   &__mock-button {
+        & img {
+          width: 100px;
+          height: 100px;
+        }
+   }
+   &__slogan {
+    font-size: 18px;
+    line-height: 33px;
+   }
+}
+}
+
+
+
+
+
+// .main {
+//     position: absolute;
+//     width: fit-content;
+
+//     top: 10%;
+//     left: 50%;
+//     transform: translate(-50%, 0);
+
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+
+//     &__logo {
+//      cursor: pointer;
+//     }
+
+//    &__mock-button {
+//         margin-top: 20%;
+
+//         background-color: transparent;
+//         border: none;
+//         cursor: pointer;
+//         transition:   transform 1s ease-out;
+//         &:hover {
+//           filter:brightness(0.8)
+//         }
+//    }
+//    &__slogan {
+//     margin-top: 10%;
+
+//     font-style: normal;
+//     font-weight: 600;
+//     font-size: 24px;
+//     line-height: 33px;
+//     text-align: center;
+//     letter-spacing: 0.09em;
+//     text-transform: uppercase;
+
+//     color: $main-text-color;
+
+//     text-shadow: 4px 1px 8px rgba(255, 255, 255, 0.8);
+//    }
+//    & nav {
+//     display: flex;
+//     flex-direction: column;
+//     align-items:center;
+//     justify-content: center;
+//    }
+// }
+
+// .mainActive {
+//      position: absolute;
+//      width: 100%;
+//      height: 100%;
+//      padding-top: 10%;
+ 
+//      display: flex;
+//      flex-direction: column;
+//      justify-content: flex-start;
+//      align-items: center;
+
+//      &__button-close {
+//           display: block;
+//           position: absolute;
+//           left: calc(100% - 60px);
+//           top: 0;
+
+
+//           width: 60px;
+//           height: 60px;
+
+//           background-color: transparent;
+//           border: none;
+
+//           &::after, &::before {
+//                content: "";
+//                position: absolute;
+//                width: 60px;
+//                height: 2px;
+//                left: 0;
+//                top: 30px;
+//                background-color: $main-text-color;
+//             }
+       
+//             &::after {
+//                transform: rotate(-45deg);
+//              }
+//              &::before {
+//                transform: rotate(45deg);
+//              }
+//         }
+
+
+
+//      background-color: rgba(0, 0, 0, 0.5);
+ 
+//     &__mock-button {
+//          margin-top: 20%;
+ 
+//          background-color: transparent;
+//          border: none;
+//          cursor: pointer;
+//     }
+//     &__slogan {
+//      margin-top: 10%;
+ 
+//      font-style: normal;
+//      font-weight: 600;
+//      font-size: 24px;
+//      line-height: 33px;
+//      text-align: center;
+//      letter-spacing: 0.09em;
+//      text-transform: uppercase;
+ 
+//      color: $main-text-color;
+ 
+//      text-shadow: 4px 1px 8px rgba(255, 255, 255, 0.8);
+//     }
+//     & nav {
+//      display: flex;
+//      flex-direction: column;
+//      align-items:center;
+//      justify-content: center;
+//     }
+// }

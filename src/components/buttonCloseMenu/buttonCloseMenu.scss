@@ -1,0 +1,78 @@
+@import '../../styles/variables.scss';
+
+.button-close {
+    display: block;
+    touch-action: manipulation;
+    position: absolute;
+    left: calc(100% - 60px);
+    top: 0;
+
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+
+    background-color: transparent;
+    border: none;
+
+    &::after, &::before {
+      touch-action: manipulation;
+         content: "";
+         position: absolute;
+         width: 40px;
+         height: 2px;
+         left: 0;
+         top: 30px;
+         background-color: $main-text-color;
+         transition:  transform 0.2s ease-out;
+      }
+ 
+      &::after {
+         transform: rotate(-45deg);
+       }
+       &::before {
+         transform: rotate(45deg);
+       }
+
+       &:hover::before {
+        background-color: $hover-text-color;
+        transform: rotate(-45deg);
+        
+       }
+       
+       &:hover::after {
+        background-color: $hover-text-color;
+        transform: rotate(45deg);
+       }
+
+       &:active::after {
+        background-color: $hover-text-color;
+        transform: rotate(-45deg);
+       }
+
+       &:active::before {
+        background-color: $hover-text-color;
+        transform: rotate(45deg);
+       }
+
+  }
+
+
+  @media (min-width: 768px) {
+    .button-close {
+      width: 60px;
+      height: 60px;
+      top: 0px;
+
+        &::after, &::before {
+         content: "";
+         position: absolute;
+         width: 60px;
+         height: 2px;
+         left: 0;
+         top: 30px;
+         background-color: $main-text-color;
+         transition:  transform 0.2s ease-out;
+      }
+    }
+
+  }
