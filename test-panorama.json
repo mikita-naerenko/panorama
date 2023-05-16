@@ -1,60 +1,125 @@
 {
-  "heroes": [
+  "portfolio": [
     {
       "id": 1,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
-      "element": "fire"
+      "name": "Car mall",
+      "description": "3D tour for 'Example'",
+      "filter": "carSallers",
+      "thumbnail": "/mock-preview/auto-1.jpg"
     },
     {
       "id": 2,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
-      "element": "wind"
+      "name": "restaurants",
+      "description": "3D tour for 'Example'",
+      "filter": "restaurants",
+      "thumbnail": "/mock-preview/rest-1.jpg"
     },
     {
       "id": 3,
-      "name": "Морской герой",
-      "description": "Как аквамен, но не из DC",
-      "element": "water"
+      "name": "restaurants",
+      "description": "3D tour for 'Example'",
+      "filter": "restaurants",
+      "thumbnail": "/mock-preview/rest-2.jpg"
     },
     {
-      "id": "cfe6ba56-df22-4f96-ac41-85984b3e2d42",
-      "name": "Thor",
-      "description": "svsvsdvsdfsd",
-      "element": "earth"
+      "id": 4,
+      "name": "hotels",
+      "description": "3D tour for 'Example'",
+      "filter": "hotels",
+      "thumbnail": "/mock-preview/hotel-1.jpg"
+    },
+    {
+      "id": 5,
+      "name": "hotels",
+      "description": "3D tour for 'Example'",
+      "filter": "hotels",
+      "thumbnail": "/mock-preview/hotel-2.jpg"
+    },
+    {
+      "id": 6,
+      "name": "hotels",
+      "description": "3D tour for 'Example'",
+      "filter": "hotels",
+      "thumbnail": "/mock-preview/hotel-3.jpg"
+    },
+    {
+      "id": 7,
+      "name": "mall",
+      "description": "3D tour for 'Example'",
+      "filter": "mall",
+      "thumbnail": "/mock-preview/mall-1.jpg"
+    },
+    {
+      "id": 8,
+      "name": "mall",
+      "description": "3D tour for 'Example'",
+      "filter": "mall",
+      "thumbnail": "/mock-preview/mall-2.jpg"
+    },
+    {
+      "id": 9,
+      "name": "mall",
+      "description": "3D tour for 'Example'",
+      "filter": "mall",
+      "thumbnail": "/mock-preview/mall-3.jpg"
+    },
+    {
+      "id": 10,
+      "name": "beauty",
+      "description": "3D tour for 'Example'",
+      "filter": "beauty",
+      "thumbnail": "/mock-preview/beauty-1.jpg"
+    },
+    {
+      "id": 11,
+      "name": "beauty",
+      "description": "3D tour for 'Example'",
+      "filter": "beauty",
+      "thumbnail": "/mock-preview/beauty-2.jpg"
     }
   ],
   "filters": [
     {
       "id": "all",
       "filter": "all",
-      "textContent": "Все",
-      "className": "btn-outline-dark"
+      "textContent": "Все проекты"
     },
     {
-      "id": "fire",
-      "filter": "fire",
-      "textContent": "Огонь",
-      "className": "btn-danger"
+      "id": "restaurants",
+      "filter": "restaurants",
+      "textContent": "Рестораны и ночные клубы"
     },
     {
-      "id": "water",
-      "filter": "water",
-      "textContent": "Вода",
+      "id": "hotels",
+      "filter": "hotels",
+      "textContent": "Отели и базы отдыха",
       "className": "btn-primary"
     },
     {
-      "id": "wind",
-      "filter": "wind",
-      "textContent": "Ветер",
-      "className": "btn-success"
+      "id": "realEstate",
+      "filter": "realEstate",
+      "textContent": "Недвижимость"
     },
     {
-      "id": "earth",
-      "filter": "earth",
-      "textContent": "Земля",
+      "id": "carSallers",
+      "filter": "carSallers",
+      "textContent": "Автосалоны"
+    },
+    {
+      "id": "mall",
+      "filter": "mall",
+      "textContent": "Торговые центры",
       "className": "btn-secondary"
+    },
+    {
+      "id": "medical",
+      "filter": "medical",
+      "textContent": "Медицинские центры и клиники"
+    },
+    {
+      "id": "beauty",
+      "filter": "beauty",
+      "textContent": "Салоны красоты"
     }
   ]
 }
