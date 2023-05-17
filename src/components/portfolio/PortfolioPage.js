@@ -1,14 +1,14 @@
 import './portfolioPage.scss';
 import Filters from '../filters/Filters';
-import {selectAll, fetchPortfolio} from './PortfolioSlice';
+import {selectAll, fetchPortfolio, incrementShowedItems} from './PortfolioSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useTrail, animated } from '@react-spring/web';
 import { createSelector } from '@reduxjs/toolkit'
 
 const PortfolioPage = () => {
-    const {portfolioLoadingStatus} = useSelector(state => state.portfolio);
+    const {portfolioLoadingStatus, showedItems} = useSelector(state => state.portfolio);
     const dispatch = useDispatch();
     const portfolio = useSelector(selectAll);
     const filteredPortfolioSelector = createSelector(
@@ -24,26 +24,28 @@ const PortfolioPage = () => {
         }
     )
     const filteredPortfolio = useSelector(filteredPortfolioSelector);
+    const itemsToShow = filteredPortfolio.slice(0, showedItems);
 
+    const handleShowMore = useCallback(() => {
+        const remainingItems = filteredPortfolio.length - showedItems;
+        const incrementCount = Math.min(remainingItems, 3);
+        if (incrementCount > 0) {
+            dispatch(incrementShowedItems(incrementCount));
+          }
+    }, [dispatch, filteredPortfolio.length, showedItems]);
 
-    
-    
     
     useEffect(() => {
         dispatch(fetchPortfolio())
     }, []);
 
-    
-    
-    const trails = useTrail(filteredPortfolio.length, {
+    const trails = useTrail(itemsToShow.length, {
         from: { opacity: 0 },
         to: { opacity: 1 },
         
       })
 
       
-
-
     return (
         <main className='portfolio'>
             <section >
@@ -60,17 +62,20 @@ const PortfolioPage = () => {
                                         className='portfolio__item'
                                         key={uuidv4()}
                                     >
-                                        <img src={process.env.PUBLIC_URL + filteredPortfolio[i].thumbnail} 
-                                             alt={filteredPortfolio[i].description} />
-                                        <h3 className='portfolio__title'>{filteredPortfolio[i].description}</h3>
+                                        <img src={process.env.PUBLIC_URL + itemsToShow[i].thumbnail} 
+                                             alt={itemsToShow[i].description} />
+                                        <h3 className='portfolio__title'>{itemsToShow[i].description}</h3>
                                     </animated.li>
                                 ))}
                             </ul>
                         )}
-                    <button 
+                        {filteredPortfolio.length - showedItems > 0 ?
+                         <button 
                         className='portfolio__show-more'
-                        
-                         >смотреть еще</button>
+                        onClick={handleShowMore}
+                         >смотреть еще</button> :
+                         null}
+                    
                 </div>
             
             <Filters/>

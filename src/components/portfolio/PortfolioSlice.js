@@ -8,6 +8,7 @@ const portfolioAdapter = createEntityAdapter();
 const initialState = portfolioAdapter.getInitialState({
     portfolioLoadingStatus: 'idle',
     activeFilter: 'all',
+    showedItems: 6
 });
 
 export const fetchPortfolio = createAsyncThunk(
@@ -24,7 +25,7 @@ const portfolioSlice = createSlice({
     name: 'portfolio',
     initialState,    
     reducers: {
-        // setFilter: (state, action) => {state.activeFilter = action.payload},
+        incrementShowedItems: (state, action) => {state.showedItems +=action.payload}
     },
     extraReducers: (builder) => {
         builder
@@ -47,7 +48,6 @@ export const {
     portfolioFetching,
     portfolioFetched,
     portfolioFetchingError,
-    // setFilter,
-    // updatePortfolioEntities
+    incrementShowedItems
     
 } = actions;
