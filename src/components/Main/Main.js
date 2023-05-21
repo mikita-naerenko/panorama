@@ -1,22 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { menuChecked } from './MainSlice';
+import { menuChecked } from '../../store/PanoramaSlice';
 import ButtonCloseMenu from '../buttonCloseMenu/ButtonCloseMenu';
+import MainNav from '../mainNav/MainNav';
 
 import logo from '../../assets/logo.svg';
 import mockButton from "../../assets/button-menu.svg"
-import MainNav from '../mainNav/MainNav';
+
 import './main.scss';
 
+
 const Main = () => {
-    const { activeMenu} = useSelector(state => state.mainMenu);
+
+    const { activeMenu } = useSelector(state => state.panorama);
+
     const dispatch = useDispatch();
     
-
     return (
-        <main >
+        <main >    
             <div className={activeMenu ? 'mainActive' : 'main'}>
-                  <ButtonCloseMenu/>                  
+            <ButtonCloseMenu/>                  
                 <img 
                     onClick={() => dispatch(menuChecked(!activeMenu))} 
                     className='main__logo'
@@ -31,13 +34,12 @@ const Main = () => {
                         style={activeMenu? {'display': 'none'} : null}
                         className='main__mock-button'>
                             <img 
-                            width='80'
-                            height="80"
-                            src={mockButton} 
-                            alt="" />
-                            </button>
+                                width='80'
+                                 height="80"
+                                 src={mockButton} 
+                                 alt="" />
+                    </button>
                     {activeMenu ? <MainNav/> : null}
-
                 </nav>
             </div>
         </main>

@@ -1,23 +1,25 @@
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterChecked, selectAll, fetchFilters } from './FiltersSlice';
-// import { setFilter } from '../portfolio/PortfolioSlice'
+
+import { filterChecked, fetchFilters, filteredPortfolio} from '../../store/PanoramaSlice';
 
 import './filters.scss';
 
 
 const Filters = () => {
 
-    const { filtersLoadingStatus, activeFilter} = useSelector(state => state.filters);
-    const filters = useSelector(selectAll);
+    const { filtersLoadingStatus, 
+            activeFilter,
+            filters} = useSelector(state => state.panorama);
 
     const dispatch = useDispatch();
-     useEffect(() => {
+
+    useEffect(() => {
         dispatch(fetchFilters())
      },[]);
 
-     const renderFiltersList = (arr) => {
+    const renderFiltersList = (arr) => {
         if (filtersLoadingStatus === 'loading') return <li>loading</li>;
         if (filtersLoadingStatus === 'error') return <li>error</li>;
         if (arr.length > 0) return arr.map((el) => {
@@ -26,9 +28,9 @@ const Filters = () => {
                         key={el.id}
                         onClick={() => {
                             dispatch(filterChecked(el.filter));
-                            // dispatch(setFilter(el.filter))
-                        }}
-                        ><button>{el.textContent}</button></li>
+                            dispatch(filteredPortfolio(el.filter)); 
+                        }}>
+                        <button>{el.textContent}</button></li>
         })
      }
 
@@ -36,10 +38,10 @@ const Filters = () => {
 
     return (
         <div className='filters'>
-        <ul className='filters__list'>
-            {filterElements}
-        </ul>
-    </div>
+            <ul className='filters__list'>
+                {filterElements}
+            </ul>
+        </div>
     )
 }
 

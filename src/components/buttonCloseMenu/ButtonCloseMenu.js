@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { menuChecked } from '../Main/MainSlice';
+import { menuChecked } from '../../store/PanoramaSlice';
 import './buttonCloseMenu.scss';
 
 const ButtonClose = () => {
 
-    const { activeMenu} = useSelector(state => state.mainMenu);
+    const { activeMenu} = useSelector(state => state.panorama);
     const dispatch = useDispatch();
 
     return (<>
