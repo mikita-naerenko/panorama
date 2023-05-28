@@ -10,8 +10,10 @@ const initialState = {
     filters: [],
     portfolio: [],
     filteredPortfolio: [],
+    chosenPortfolioItem: {},
     showedItems: 6,
     activeMenu: false,
+    currentPage: 'main'
 }
 
 export const fetchPortfolio = createAsyncThunk(
@@ -37,8 +39,10 @@ const panoramaSlice = createSlice({
         filterChecked: (state, action) => {state.activeFilter = action.payload},
         menuChecked: (state, action) => {state.activeMenu = action.payload},
         incrementShowedItems: (state, action) => {state.showedItems +=action.payload},
-        // selectFilter: (state, action) => {state.activeFilter = action.payload},
-        filteredPortfolio: (state, action) => {state.filteredPortfolio = state.portfolio.filter(item => item.filter === action.payload)}
+        setCurrentPage: (state, action) => {state.currentPage = action.payload},
+        filteredPortfolio: (state, action) => {state.filteredPortfolio = state.portfolio.filter(item => item.filter === action.payload)},
+        setChosenPortfolioItem: (state, action) => {state.chosenPortfolioItem = action.payload},
+        setIframeLink: (state, action) =>{state.iframeLink = action.payload}
     },
     extraReducers: (builder) => {
         builder 
@@ -65,7 +69,8 @@ export const {
     menuChecked,
     filterChecked,
     incrementShowedItems,
-    // selectFilter,
+    setCurrentPage,
+    setChosenPortfolioItem,
     portfolioFetching,
     portfolioFetched,
     portfolioFetchingError,
@@ -73,6 +78,7 @@ export const {
     filtersFetched,
     filtersFetchingError,
     filteredPortfolio,
+    setIframeLink,
 
 
 } = actions;

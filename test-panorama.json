@@ -3,9 +3,26 @@
     {
       "id": 1,
       "name": "Car mall",
-      "description": "3D tour for 'Example'",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, nisl eu dignissim pretium, elit arcu venenatis justo, non lacinia urna nunc sit amet massa. In at eros id velit egestas scelerisque non vitae nisi. Pellentesque auctor enim id eleifend sagittis. Ut eget nisi a libero tristique sollicitudin. Nam venenatis odio sed urna tristique, ut vestibulum dolor feugiat. Nullam nec libero condimentum, posuere sem non, interdum ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum varius lobortis lorem vitae commodo.'",
       "filter": "carSallers",
-      "thumbnail": "/mock-preview/auto-1.jpg"
+      "thumbnail": "/mock-preview/auto-1.jpg",
+      "listTech": [
+        "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT.",
+        "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT.",
+        "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT."
+      ],
+      "linkOnIframe": [
+        {
+          "title": "3D tour for site",
+          "thumbnail" : "/mock-preview/mock-tour-1.png",
+          "iframeLink": "https://panoramakrasnodar.ru/tours/leon1/index.html"
+        },
+        {
+          "title": "3D tour on Google",
+          "thumbnail" : "/mock-preview/mock-tour-2.png",
+          "iframeLink": "https://www.google.com/maps/embed?pb=!4v1565246376958!6m8!1m7!1sCAoSLEFGMVFpcE15bGkzNGl3dk1tNUd1YUVNVDFYUUVUTkdNS3hnX1QtTV81NDRF!2m2!1d45.11334260906943!2d38.9961683410736!3f95.76696963376553!4f-0.020656699667952694!5f0.7820865974627469"
+        }
+      ]
     },
     {
       "id": 2,

@@ -1,0 +1,68 @@
+.single-portfolio {
+
+    width: 100%;
+    min-height: 100vh;
+    // height: 100%;
+    color: white;
+    background-color: #212020;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat : no-repeat;
+    background-size: cover;
+    // overflow:scroll;
+    
+    & section {
+        padding-left: 10%;
+        padding-right: 10%;
+        width: 100%;
+        height:100vh;
+        backdrop-filter: blur(5px) brightness(60%) saturate(120%);   
+        
+    }
+
+    &__description-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+    &__list-of-tech {
+        
+        flex-basis: 40%
+    }
+    &__item {
+        position: relative;
+        margin-bottom: 30px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 26px;
+        text-transform: uppercase;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0.5em;
+            left: -15px;
+            background-color: #ffffff;
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 50%;
+        }
+    }
+    &__description {
+        flex-basis: 40%;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    &__button-wrapper {
+        // margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        padding-bottom: 50px;
+    }
+}

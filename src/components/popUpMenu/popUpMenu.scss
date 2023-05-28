@@ -3,23 +3,44 @@
     left: 0;
     height: 100%;
     z-index: 2;
+    padding-left: 1%;
+    
 
-    background-color: rgba(33, 32, 32, 0.9);
+    background-color: #E7D322;
+    width: 5%;
+    transition: width 0.2s;
+   
 
     & svg {
-        transform: scale(0.5);
+        margin-right: 5px;
+        transform: scale(0.7);
+        flex-shrink: 0;
     }
 
     &__item {
         display: flex;
         align-items:center;
+        margin-top: 30px;
+        cursor: pointer;
+
+        &:hover {
+            & span {
+                color: rgba(64, 63, 63, 0.649);
+            }
+            & svg path {
+                fill: rgba(64, 63, 63, 0.649);
+            }
+        }
     }
 
     &__list {
+        position: fixed;
+        top: 10%;
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+
+       
     }
 
     &__title {
@@ -27,7 +48,18 @@
         font-size: 18px;
         line-height: 24px;
         text-transform: uppercase;
-
+        white-space: nowrap;
         color: #ffffff;
+        width: 0;
+        overflow: hidden;
+        transition: width 0.2s;
+    }
+
+    &:hover {
+        width: 20%;
+    }
+
+    &:hover .popup-menu__title {
+        width: 100%;
     }
 }

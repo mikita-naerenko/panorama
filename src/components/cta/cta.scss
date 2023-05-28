@@ -1,0 +1,33 @@
+.cta {
+    position: fixed;
+    right: 10px;
+    top: 40px;
+    padding: 5px 20px;
+    z-index: 1;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    background-color: #ba0000;
+    border: none;
+    border-radius: 14px ;
+
+    text-shadow: 0px 0px 30px #ffffff;
+
+    &:before {
+        content: 'все нравится?';
+        font-size: 12px;
+        line-height: 20px;
+        color: #ffffff;
+        position: absolute;
+        top: -25px;
+        left: 30%;
+    }
+}
+

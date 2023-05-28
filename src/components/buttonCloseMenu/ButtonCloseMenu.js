@@ -1,17 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { menuChecked } from '../../store/PanoramaSlice';
+import { menuChecked, setIframeLink } from '../../store/PanoramaSlice';
 import './buttonCloseMenu.scss';
 
 const ButtonClose = () => {
 
-    const { activeMenu} = useSelector(state => state.panorama);
+    const { activeMenu, iframeLink} = useSelector(state => state.panorama);
     const dispatch = useDispatch();
 
     return (<>
-        {activeMenu ? <button 
+        {activeMenu || iframeLink ? <button 
             className='button-close'
-            onClick={() => dispatch(menuChecked(!activeMenu))}></button> : null}
+            onClick={() => {
+                                if (activeMenu) dispatch(menuChecked(!activeMenu))
+                                if (iframeLink) dispatch(setIframeLink(''))
+                            }
+                    }></button> : null}
            </> 
     )
 }

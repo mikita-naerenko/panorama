@@ -1,13 +1,17 @@
-import { fetchPortfolio, incrementShowedItems} from '../../store/PanoramaSlice';
+import { fetchPortfolio, incrementShowedItems, setCurrentPage, filterChecked, setChosenPortfolioItem } from '../../store/PanoramaSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useTrail, animated } from '@react-spring/web';
+import { Link } from 'react-router-dom';
 
 import Filters from '../filters/Filters';
+import CTA from '../cta/CTA';
+import ButtonMainAction from '../buttonMainAction/ButtonMainAction';
+import PopUpMenu from '../popUpMenu/PopUpMenu';
 
 import './portfolioPage.scss';
-// import PopUpMenu from '../popUpMenu/PopUpMenu';
+
 
 const PortfolioPage = () => {
     const { portfolioLoadingStatus,
@@ -31,21 +35,25 @@ const PortfolioPage = () => {
     };
 
     useEffect(() => {
-        dispatch(fetchPortfolio())
+        dispatch(fetchPortfolio());
+        dispatch(setCurrentPage('portfolio'));
+        dispatch(filterChecked('all'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 
     const trails = useTrail(itemsToShow.length, {
         from: { opacity: 0 },
         to: { opacity: 1 },
-        config: { duration: 1000 }, 
+        config: { duration: 100 }, 
         
       })
 
       
     return (
         <main className='portfolio'>
-            {/* <PopUpMenu/> */}
+            <CTA/>
+            <PopUpMenu/>
             <section >
                <h2 className='current-page-name'>портфолио</h2> 
                <div className='portfolio__wrapper'>
@@ -59,19 +67,23 @@ const PortfolioPage = () => {
                                         style={style}
                                         className='portfolio__item'
                                         key={uuidv4()}
-                                    >
-                                        <img src={process.env.PUBLIC_URL + itemsToShow[i].thumbnail}
-                                            alt={itemsToShow[i].description} />
-                                        <h3 className='portfolio__title'>{itemsToShow[i].description}</h3>
+                                        onClick={() => dispatch(setChosenPortfolioItem(itemsToShow[i]))}>
+                                        <Link to={`/portfolio/${itemsToShow[i].id}`}>
+                                            <img src={process.env.PUBLIC_URL + itemsToShow[i].thumbnail}
+                                                 alt={itemsToShow[i].description} />
+                                            <h3 className='portfolio__title'>{itemsToShow[i].name}</h3>
+                                        </Link>
                                     </animated.li>
                                 ))}
                             </ul>
                         )}
                         {showList.length - showedItems > 0 ?
-                            <button
-                                className='portfolio__show-more'
-                                onClick={handleShowMore}
-                            >смотреть еще</button> : null}
+                            // <button
+                            //     className='portfolio__show-more'
+                            //     onClick={handleShowMore}
+                            // >смотреть еще</button> : null
+                            <ButtonMainAction title={'смотреть еще'} onClick={handleShowMore}/> : null
+                            }
                     </div>
             
                 <Filters/>

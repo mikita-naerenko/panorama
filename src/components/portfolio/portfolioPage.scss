@@ -25,7 +25,7 @@
         flex-direction: column;
         align-items:center;
         justify-content: space-between;
-
+        
         border: 2px solid #FFFFFF;
         border-radius: 14px;
     }
@@ -34,11 +34,13 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+
         
     }
 
     &__item {
         width: 32%;
+        
         position: relative;
         & img {
             filter: brightness(0.8);
@@ -56,31 +58,56 @@
         left: 3%;
     }
 
-    &__show-more {
+    // &__show-more {
         
-        margin-top: 30px;
-        padding-right: 30px;
-        padding-left: 30px;
-        cursor: pointer;
+    //     margin-top: 30px;
+    //     padding-right: 30px;
+    //     padding-left: 30px;
+    //     cursor: pointer;
 
-        border: 4px solid #FFFFFF;
-        border-radius: 14px;
-        background-color: transparent;
+    //     border: 4px solid #FFFFFF;
+    //     border-radius: 14px;
+    //     background-color: transparent;
 
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 44px;
-        text-align: center;
-        text-transform: uppercase;
-        color: #FFFFFF;
-        text-shadow: 0px 0px 30px #FFFFFF;
-    }
-    &__show-more:disabled {
-        color: #8e8e8e;
-        opacity: 0.5;
-    }
+    //     font-family: 'Open Sans';
+    //     font-style: normal;
+    //     font-weight: 700;
+    //     font-size: 32px;
+    //     line-height: 44px;
+    //     text-align: center;
+    //     text-transform: uppercase;
+    //     color: #FFFFFF;
+    //     text-shadow: 0px 0px 30px #FFFFFF;
+
+
+        /* Animation properties */
+        // animation-name: colorReplace;
+        // animation-duration: 0.5s;
+        // animation-timing-function: linear;
+        // animation-iteration-count: infinite;
+
+        /* Pause the animation by default */
+        // animation-play-state: paused;
+
+        // &:hover {
+        //     // border: 4px solid #E7D322;
+        //     // color: #E7D322;
+        //     animation-play-state: running;
+        // }
+    // }
+    // &__show-more:disabled {
+    //     color: #8e8e8e;
+    //     opacity: 0.5;
+    // }
 }
 
-
+// @keyframes colorReplace {
+//     0% {
+//       color: #FFFFFF;
+//       border-color: #FFFFFF;
+//     }
+//     100% {
+//       color: #E7D322;
+//       border-color: #E7D322;
+//     }
+//   }
