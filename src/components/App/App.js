@@ -1,7 +1,10 @@
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
+import { useTransition, animated } from '@react-spring/web';
+import { useSelector } from 'react-redux';
+
 
 import Main from '../Main/Main';
-import PortfoloiPage from '../portfolio/PortfolioPage';
+import PortfolioPage from '../portfolio/PortfolioPage';
 import MainPanoramaBg from '../photoSphere/PhotoSphere';
 import Contacts from '../contacts/Contacts';
 import SinglePortfolioPage from '../singlePortfolioPage/SinglePortfolioPage';
@@ -13,19 +16,44 @@ import './app.scss';
 
 
 const App = () => {
+  const location = useLocation();
+  const {currentPage} = useSelector(state => state.panorama)
+ 
+
+  const transitions = useTransition(location, {
+    from: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+    },
+    leave: {
+      opacity: 0,
+    },
+    config: {
+      duration: 200,
+      
+    }
+})
 
     return (
-        <Router>
+        <>
         <div className='app'>
-              <MainPanoramaBg/>
-              <Routes>
-                <Route path='/' element={<Main />}/>
-                <Route path='/portfolio' element={<PortfoloiPage/>}/>
-                <Route path='/contacts' element={<Contacts/>}/>
-                <Route path='/portfolio/:id' element={<SinglePortfolioPage/>}/>
-              </Routes>
+          {currentPage === 'main' ? <MainPanoramaBg/> : null}
+              
+              {transitions((props, item) => (
+          <animated.div style={props}>
+            <Routes location={item}>
+              <Route path='/' element={<Main />} />
+              <Route path='/portfolio' element={<PortfolioPage />} />
+              <Route path='/contacts' element={<Contacts />} />
+              <Route path='/portfolio/:id' element={<SinglePortfolioPage />} />
+            </Routes>
+          </animated.div>
+        ))} 
+
         </div>
-        </Router>
+        </>
     )
 }
 

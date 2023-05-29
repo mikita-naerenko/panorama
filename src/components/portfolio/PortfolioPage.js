@@ -1,6 +1,6 @@
 import { fetchPortfolio, incrementShowedItems, setCurrentPage, filterChecked, setChosenPortfolioItem } from '../../store/PanoramaSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useTrail, animated } from '@react-spring/web';
 import { Link } from 'react-router-dom';
@@ -23,6 +23,7 @@ const PortfolioPage = () => {
     const dispatch = useDispatch();
  
     const showList =  activeFilter === 'all' ? portfolio : filteredPortfolio;
+
     const itemsToShow = showList.slice(0, showedItems);
 
     const handleShowMore = () => {
@@ -33,6 +34,7 @@ const PortfolioPage = () => {
             dispatch(incrementShowedItems(incrementCount));
           }
     };
+    console.log('render');
 
     useEffect(() => {
         dispatch(fetchPortfolio());
