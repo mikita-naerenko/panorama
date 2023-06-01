@@ -80,10 +80,6 @@ const PortfolioPage = () => {
                             </ul>
                         )}
                         {showList.length - showedItems > 0 ?
-                            // <button
-                            //     className='portfolio__show-more'
-                            //     onClick={handleShowMore}
-                            // >смотреть еще</button> : null
                             <ButtonMainAction title={'смотреть еще'} onClick={handleShowMore}/> : null
                             }
                     </div>
