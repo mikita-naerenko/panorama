@@ -1,22 +1,53 @@
+@import '../../styles/variables.scss';
+
 .button-main-action {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-right: 30px;
-    padding-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
     align-self: center;
     cursor: pointer;
 
-    border: 4px solid #FFFFFF;
-    border-radius: 14px;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
     background-color: transparent;
 
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 32px;
-    line-height: 44px;
+    font-size: $mobile-font-size-button;
+    line-height: 32px;
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
     text-shadow: 0px 0px 30px #FFFFFF;
+}
+
+@media (min-width: $tablet-width) {
+    .button-main-action {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding-right: 30px;
+        padding-left: 30px;
+        align-self: center;
+        cursor: pointer;
+    
+        border: 4px solid #FFFFFF;
+        border-radius: 14px;
+        background-color: transparent;
+    
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: $desktop-font-size-button;
+        line-height: 44px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        text-shadow: 0px 0px 30px #FFFFFF;
+    }
+}
+
+@media (min-width: $desktop-width) {
+    
 }

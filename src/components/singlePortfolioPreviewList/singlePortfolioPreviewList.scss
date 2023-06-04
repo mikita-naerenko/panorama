@@ -1,13 +1,37 @@
+@import '../../styles/variables.scss';
+
 .single-portfolio-preview-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 20px;
+    align-items:center;
+    // justify-content: space-evenly;
+
+    border-top: 2px solid $main-text-color;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    position: relative;
+
+    &::before {
+        content: 'реализованный проект:';
+        color: $main-text-color;
+        font-size: $desktop-font-size-text;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
     &__item {
         flex-basis: 40%;
+        max-width: 430px;
         position: relative;
         cursor: pointer;
         transition: transform 0.4s;
+        box-shadow: 5px 5px 10px 4px rgba(255, 255, 255, 0.276);
 
         &:hover {
             transform: scale(1.1);
@@ -43,7 +67,7 @@
     &__title {
         position: absolute;
         bottom: 5%;
-        left: 30%;
+        left: 15%;
         transform: translateX(-15%);
 
         font-weight: 700;
@@ -60,9 +84,32 @@
         background-color: rgba(0, 0, 0, 0.5);
         position: fixed;
         top: 0;
+        cursor: pointer;
+        
 
         & iframe {
             margin-top: 10%;
+            height: 80vh;
+            cursor:auto;
         }
      }
+}
+
+@media (min-width: $tablet-width) {
+    .single-portfolio-preview-list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction:initial;
+        gap: 30px;
+        align-items:center;
+        justify-content: center;
+
+        &__item {
+            flex-basis: 48%;
+            max-width: 430px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.4s;
+        }
+    }
 }

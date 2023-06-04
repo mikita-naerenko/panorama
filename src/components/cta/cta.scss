@@ -1,4 +1,9 @@
+@import '../../styles/variables.scss';
+
+
+
 .cta {
+    display: none;
     position: fixed;
     right: 10px;
     top: 40px;
@@ -13,21 +18,45 @@
     text-align: center;
     text-transform: uppercase;
 
-    color: #ffffff;
+    color: $main-text-color;
     background-color: #ba0000;
     border: none;
     border-radius: 14px ;
 
-    text-shadow: 0px 0px 30px #ffffff;
+    text-shadow: 0px 0px 30px $main-text-color;
 
     &:before {
         content: 'все нравится?';
         font-size: 12px;
         line-height: 20px;
-        color: #ffffff;
+        color: $main-text-color;
         position: absolute;
         top: -25px;
         left: 30%;
+    }
+}
+
+@media (min-width: $tablet-width) {
+    .cta {
+       display: block;
+       font-size: $tablet-font-size-button;
+       
+    }
+}
+
+@media (min-width: $desktop-width) {
+    .cta {
+       font-size: $desktop-font-size-button;
+       line-height: 40px;
+       &:before {
+        content: 'все нравится?';
+        font-size: $desktop-font-size-subtitle;
+        line-height: 40px;
+        color: $main-text-color;
+        position: absolute;
+        top: -40px;
+        left: 30%;
+    }
     }
 }
 

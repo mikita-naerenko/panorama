@@ -1,14 +1,27 @@
 $main-text-color: #FFFFFF;
 $hover-text-color: #dbc607;
+$popup-menu-color: #E7D322;
+$popup-menu-hover-color:rgba(64, 63, 63, 0.649);
 
-.current-page-name {
-    padding-top: 30px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 65px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    text-shadow: 0px 0px 30px #FFFFFF;
-    margin-bottom: 20px;
-}
+
+$tablet-width: 768px;
+$desktop-width: 1200px;
+
+
+$mobile-font-size-main-title: 28px;
+$tablet-font-size-main-title: 38px;
+$desktop-font-size-main-title: 48px;
+
+$mobile-font-size-subtitle: 10px;
+$tablet-font-size-subtitle: 12px;
+$desktop-font-size-subtitle: 20px;
+
+$mobile-font-size-text: 18px;
+$tablet-font-size-text: 18px;
+$desktop-font-size-text: 18px;
+
+$mobile-font-size-button: 14px;
+$tablet-font-size-button: 18px;
+$desktop-font-size-button: 32px;
+
+

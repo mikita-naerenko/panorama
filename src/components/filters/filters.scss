@@ -1,22 +1,13 @@
+@import '../../styles/variables.scss';
 .filters {
-    &__list {
+
+    &__item {
+        margin-bottom: 10px;
 
     }
-    &__item {
-        margin-bottom: 30px;
-        // font-family: 'Open Sans';
-        // font-style: normal;
-        // font-weight: 600;
-        // font-size: 20px;
-        // line-height: 33px;
-        // // text-align: center;
-        // text-transform: uppercase;
-
-        // color: #FFFFFF;
-
-        // text-shadow: 0px 0px 15px #FFFFFF;
-        // cursor: pointer;
-
+    &__list {
+        position: sticky;
+        top: 80px;
     }
     & button {
         background-color: transparent;
@@ -27,19 +18,47 @@
         font-family: inherit;
         font-style: inherit;
         font-weight: 600;
-        font-size: 20px;
-        line-height: 33px;
+        font-size: $mobile-font-size-subtitle;
+        line-height: 15px;
         text-align: start;
-        // text-align: center;
         text-transform: uppercase;
 
 
-        text-shadow: 0px 0px 15px #FFFFFF;
+        text-shadow: 0px 0px 15px $main-text-color;
     }
 
     &__active-filter {
-        color: #E7D322;
+        color: $hover-text-color;
 
-        text-shadow: 0px 0px 30px #FFFFFF;
+        text-shadow: 0px 0px 30px $main-text-color;
     }
 }
+
+
+@media (min-width: $tablet-width) {
+    .filters {
+        &__item {
+            margin-bottom: 15px;
+    
+        }
+        & button {
+            font-size: $tablet-font-size-subtitle;
+            line-height: 20px;
+        }
+    }
+}
+
+
+@media (min-width: $desktop-width) {
+    .filters {
+        &__item {
+            margin-bottom: 30px;
+    
+        }
+        & button {
+            font-size: $desktop-font-size-subtitle;
+            line-height: 33px;
+        }
+    }
+}
+

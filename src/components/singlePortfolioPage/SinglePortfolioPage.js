@@ -28,12 +28,15 @@ const SinglePortfolioPage = () => {
             <section>
             <h2 className='current-page-name'>{chosenPortfolioItem.name}</h2> 
             <div className='single-portfolio__description-wrapper'>
-                <ul className='single-portfolio__list-of-tech'>
-                    {listOfTechItem}
-                </ul>
+
                 <p className='single-portfolio__description'>
                     {chosenPortfolioItem.description}
                 </p>
+                <ul className='single-portfolio__list-of-tech'>
+                    <h2 className='single-portfolio__list-of-tech-title'>В данном проекте были реализованы такие технологии как:</h2>
+                    {listOfTechItem}
+                </ul>
+                
             </div>
             <SinglePortfolioPreviewList/>
 

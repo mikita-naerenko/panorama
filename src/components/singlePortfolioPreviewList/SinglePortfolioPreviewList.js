@@ -9,7 +9,10 @@ const SinglePortfolioPreviewList = () => {
     const { chosenPortfolioItem, iframeLink } = useSelector(state => state.panorama);
     const dispatch = useDispatch();
     const renderFullScreenIframe = (link) => {
-        return <div className='single-portfolio-preview-list__iframe-wrapper'>
+        return <div className='single-portfolio-preview-list__iframe-wrapper'
+        onClick={() => {
+            if (iframeLink) dispatch(setIframeLink(''))
+        }}>
                 <ButtonCloseMenu/>
                     <iframe  title="This is a unique title" src={link} width="100%" height="80%"  ></iframe>
                 </div>

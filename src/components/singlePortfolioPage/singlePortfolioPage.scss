@@ -1,7 +1,13 @@
+@import '../../styles/variables.scss';
+
+body,
+html {
+    height: 100%;
+}
+
 .single-portfolio {
 
     width: 100%;
-    min-height: 100vh;
     // height: 100%;
     color: white;
     background-color: #212020;
@@ -11,33 +17,37 @@
     left: 0;
     background-repeat : no-repeat;
     background-size: cover;
-    // overflow:scroll;
     
     & section {
-        padding-left: 10%;
+        padding-left: 15%;
         padding-right: 10%;
         width: 100%;
-        // height:100vh;
+        height: 100%;
         backdrop-filter: blur(5px) brightness(60%) saturate(120%);   
         
     }
 
     &__description-wrapper {
         display: flex;
+        flex-direction: column;
         justify-content: space-evenly;
-        margin-top: 100px;
+        align-items:center;
+        margin-top: 30px;
         margin-bottom: 50px;
     }
     &__list-of-tech {
         
         flex-basis: 40%
     }
+    &__list-of-tech-title {
+            margin-bottom: 20px; 
+    }
     &__item {
         position: relative;
         margin-bottom: 30px;
         font-style: normal;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 15px;
         line-height: 26px;
         text-transform: uppercase;
         &:before {
@@ -59,10 +69,81 @@
     }
 
     &__button-wrapper {
-        // margin-top: 30px;
         display: flex;
         justify-content: center;
         align-items:center;
         padding-bottom: 50px;
+    }
+}
+
+@media (min-width: $tablet-width) {
+    .single-portfolio {
+
+        width: 100%;
+        // height: 100%;
+        color: white;
+        background-color: #212020;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-repeat : no-repeat;
+        background-size: cover;
+        
+        & section {
+            padding-left: 10%;
+            padding-right: 10%;
+            width: 100%;
+            // height: 100%;
+            backdrop-filter: blur(5px) brightness(60%) saturate(120%);   
+            
+        }
+    
+        &__description-wrapper {
+            display: flex;
+            flex-direction: initial;
+            justify-content: space-evenly;
+            align-items: start;
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+        &__list-of-tech {
+            
+            flex-basis: 40%
+
+            
+        }
+        &__item {
+            position: relative;
+            margin-bottom: 30px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: $desktop-font-size-text;
+            line-height: 26px;
+            text-transform: uppercase;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0.5em;
+                left: -15px;
+                background-color: #ffffff;
+                width: 0.5em;
+                height: 0.5em;
+                border-radius: 50%;
+            }
+        }
+        &__description {
+            flex-basis: 40%;
+            font-weight: 600;
+            font-size: $desktop-font-size-text;
+            line-height: 26px;
+        }
+    
+        &__button-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            padding-bottom: 50px;
+        }
     }
 }
