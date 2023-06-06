@@ -1,6 +1,9 @@
+@import '../../styles/variables.scss';
+
 .contacts {
-    padding-left: 10%;
-    padding-right: 2%;
+    padding-left: 13%;
+    padding-right: 13%;
+
     width: 100%;
     min-height: 100vh;
     color: white;
@@ -9,5 +12,67 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    &__title-wrapper {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        
+    }
+    &__title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    &__list {
+        border-bottom: 1px solid $main-text-color;
+    }
+    &__container-static {
+        display: flex;
+        flex-direction: column;
+        & span {
+            margin-bottom: 10px;
+        }
+    }
+    &__container-link {
+        display: flex;
+        flex-direction: column;
+
+        & span {
+            margin-bottom: 10px;
+        }
+        & a {
+            color: #b6a614;
+        }
+    }
+    &__form-wrapper {
+        padding-bottom: 20px;
+    }
+}
+
+@media (min-width: $tablet-width) {
+    .contacts {
+        &__list {
+            display: flex;
+        }
+        &__container-static {
+            margin-right: 20px;
+         }
+        }
+}
+
+@media (min-width: $desktop-width) {
+    .contacts {
+        &__list {
+            // justify-content: space-evenly;
+        }
+        &__container-static {
+            margin-right: 10%;
+         }
+        }
 }
 

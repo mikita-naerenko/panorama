@@ -37,7 +37,9 @@ const ButtonMainAction = (props) => {
       <animated.button onClick={props.onClick ? props.onClick : null}
                                          onMouseEnter={() => setHovered(true)} 
                                           onMouseLeave={() => setHovered(false)}
-                        className='button-main-action' style={buttonAnimation}>
+                       className='button-main-action'
+                       style={buttonAnimation}
+                       type={props.type === 'submit' ? 'submit' : 'button'}>
                             {props.title}
                         </animated.button>
     )

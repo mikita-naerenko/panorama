@@ -1,6 +1,7 @@
 import './singlePortfolioPage.scss';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setChosenPortfolioItem, setCurrentPage } from '../../store/PanoramaSlice';
+import { useEffect } from 'react';
 import PopUpMenu from '../popUpMenu/PopUpMenu';
 import CTA from '../cta/CTA';
 import SinglePortfolioPreviewList from '../singlePortfolioPreviewList/SinglePortfolioPreviewList';
@@ -9,6 +10,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 const SinglePortfolioPage = () => {
     const { chosenPortfolioItem, iframeLink } = useSelector(state => state.panorama);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(setCurrentPage('portfolio'));
+        dispatch(setChosenPortfolioItem(Object.keys(chosenPortfolioItem).length > 0 ? chosenPortfolioItem : JSON.parse(localStorage.getItem('currentPageToLoad'))));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    // In the next line I am declaring a variable which contain the state from PanoramaSlice or retrive the value from localeStorage 
+    const currentPageToLoad = Object.keys(chosenPortfolioItem).length > 0 ? chosenPortfolioItem : JSON.parse(localStorage.getItem('currentPageToLoad'));
     const renderListOfTechItem = (arr) => {
         return arr.listTech.map(el => {
             return <li 
@@ -18,19 +27,18 @@ const SinglePortfolioPage = () => {
                   </li>
         })
     }
-
-    const listOfTechItem = renderListOfTechItem(chosenPortfolioItem);
+    const listOfTechItem = renderListOfTechItem(currentPageToLoad);
     
     return  (
-        <main className='single-portfolio' style={{'backgroundImage' : `url(${chosenPortfolioItem.thumbnail})`}}>
+        <main className='single-portfolio' style={{'backgroundImage' : `url(${currentPageToLoad.thumbnail})`}}>
             <PopUpMenu/>
             {!iframeLink ? <CTA/> : null}
             <section>
-            <h2 className='current-page-name'>{chosenPortfolioItem.name}</h2> 
+            <h2 className='current-page-name'>{currentPageToLoad.name}</h2> 
             <div className='single-portfolio__description-wrapper'>
 
                 <p className='single-portfolio__description'>
-                    {chosenPortfolioItem.description}
+                    {currentPageToLoad.description}
                 </p>
                 <ul className='single-portfolio__list-of-tech'>
                     <h2 className='single-portfolio__list-of-tech-title'>В данном проекте были реализованы такие технологии как:</h2>
@@ -41,7 +49,6 @@ const SinglePortfolioPage = () => {
             <SinglePortfolioPreviewList/>
 
             <div className='single-portfolio__button-wrapper'>
-                {/* <li><Link to={'/portfolio'} className='portfolio__show-more'>назад</Link></li> */}
                 <ButtonMainAction title={'назад'} to={'/portfolio'}/>
                
             </div>

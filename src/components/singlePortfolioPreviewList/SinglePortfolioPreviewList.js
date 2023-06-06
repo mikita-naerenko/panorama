@@ -38,7 +38,9 @@ const SinglePortfolioPreviewList = () => {
                     </li>
         })
     }
-    const previewListItems = renderPreviewListItems(chosenPortfolioItem)
+// In the next line, I am checking the length of the state, which should contain an object with items for the current page.
+// If it is absent, I will retrieve the value from localStorage.
+    const previewListItems = renderPreviewListItems(Object.keys(chosenPortfolioItem).length > 0 ? chosenPortfolioItem : JSON.parse(localStorage.getItem('currentPageToLoad')))
     return (
         <ul className='single-portfolio-preview-list'>
             {previewListItems}

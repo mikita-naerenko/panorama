@@ -12,7 +12,7 @@
     border-radius: 10px;
     background-color: transparent;
 
-    font-family: 'Open Sans';
+    // font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
     font-size: $mobile-font-size-button;
@@ -20,7 +20,7 @@
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
-    text-shadow: 0px 0px 30px #FFFFFF;
+    // text-shadow: 0px 0px 30px #FFFFFF;
 }
 
 @media (min-width: $tablet-width) {
@@ -36,7 +36,7 @@
         border-radius: 14px;
         background-color: transparent;
     
-        font-family: 'Open Sans';
+        // font-family: 'Open Sans';
         font-style: normal;
         font-weight: 700;
         font-size: $desktop-font-size-button;
@@ -44,7 +44,7 @@
         text-align: center;
         text-transform: uppercase;
         color: #FFFFFF;
-        text-shadow: 0px 0px 30px #FFFFFF;
+        // text-shadow: 0px 0px 30px #FFFFFF;
     }
 }
 

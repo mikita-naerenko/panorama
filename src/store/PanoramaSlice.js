@@ -6,14 +6,18 @@ import { useHttp } from '../hooks/htth.hook';
 const initialState = {
     portfolioLoadingStatus: 'idle',
     filtersLoadingStatus: 'idle',
+    cityLoadingStatus: 'idle',
     activeFilter: 'all',
     filters: [],
     portfolio: [],
+    city: [],
     filteredPortfolio: [],
     chosenPortfolioItem: {},
     showedItems: 6,
     activeMenu: false,
-    currentPage: 'main'
+    currentPage: 'main',
+    showPersonalDataAgreement: false,
+    formDidSubmit: false,
 }
 
 export const fetchPortfolio = createAsyncThunk(
@@ -32,6 +36,14 @@ export const fetchFilters = createAsyncThunk(
     }
 )
 
+export const fetchCity = createAsyncThunk(
+    'city/fetchCity',
+    () => {
+        const {request} = useHttp();
+        return request("http://localhost:3004/city");
+    }
+)
+
 const panoramaSlice = createSlice({
     name: 'panorama',
     initialState,
@@ -42,7 +54,9 @@ const panoramaSlice = createSlice({
         setCurrentPage: (state, action) => {state.currentPage = action.payload},
         filteredPortfolio: (state, action) => {state.filteredPortfolio = state.portfolio.filter(item => item.filter === action.payload)},
         setChosenPortfolioItem: (state, action) => {state.chosenPortfolioItem = action.payload},
-        setIframeLink: (state, action) =>{state.iframeLink = action.payload}
+        setIframeLink: (state, action) =>{state.iframeLink = action.payload},
+        setPersonalDataAgreementDisplay: (state, action) => {state.showPersonalDataAgreement = action.payload},
+        setFormDidSumit: (state, action) => {state.formDidSubmit = action.payload}
     },
     extraReducers: (builder) => {
         builder 
@@ -59,6 +73,14 @@ const panoramaSlice = createSlice({
                     
                 })
                 .addCase(fetchPortfolio.rejected, state => {state.portfolioLoadingStatus = 'error'})
+
+                
+                .addCase(fetchCity.pending, state => {state.cityLoadingStatus = 'loading'})
+                .addCase(fetchCity.fulfilled, (state, action) => {
+                    state.cityLoadingStatus = 'idle';
+                    state.city = action.payload
+                })
+                .addCase(fetchCity.rejected, state => {state.cityLoadingStatus = 'error'})
                 .addDefaultCase(() => {})
     }
 });
@@ -79,6 +101,8 @@ export const {
     filtersFetchingError,
     filteredPortfolio,
     setIframeLink,
+    setPersonalDataAgreementDisplay,
+    setFormDidSumit,
 
 
 } = actions;

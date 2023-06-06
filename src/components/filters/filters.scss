@@ -24,13 +24,13 @@
         text-transform: uppercase;
 
 
-        text-shadow: 0px 0px 15px $main-text-color;
+        // text-shadow: 0px 0px 15px $main-text-color;
     }
 
     &__active-filter {
         color: $hover-text-color;
 
-        text-shadow: 0px 0px 30px $main-text-color;
+        // text-shadow: 0px 0px 30px $main-text-color;
     }
 }
 

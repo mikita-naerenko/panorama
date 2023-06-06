@@ -1,6 +1,6 @@
 import { fetchPortfolio, incrementShowedItems, setCurrentPage, filterChecked, setChosenPortfolioItem } from '../../store/PanoramaSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useTrail, animated } from '@react-spring/web';
 import { Link } from 'react-router-dom';
@@ -34,9 +34,9 @@ const PortfolioPage = () => {
             dispatch(incrementShowedItems(incrementCount));
           }
     };
-    console.log('render');
 
     useEffect(() => {
+        
         dispatch(fetchPortfolio());
         dispatch(setCurrentPage('portfolio'));
         dispatch(filterChecked('all'))
@@ -69,7 +69,11 @@ const PortfolioPage = () => {
                                         style={style}
                                         className='portfolio__item'
                                         key={uuidv4()}
-                                        onClick={() => dispatch(setChosenPortfolioItem(itemsToShow[i]))}>
+                                        onClick={() => {
+                                                        dispatch(setChosenPortfolioItem(itemsToShow[i]))
+                                                        // Set the current page to load in localStorage
+                                                        localStorage.setItem('currentPageToLoad', JSON.stringify(itemsToShow[i]))
+                                        }}>
                                         <Link to={`/portfolio/${itemsToShow[i].id}`}>
                                             <img src={process.env.PUBLIC_URL + itemsToShow[i].thumbnail}
                                                  alt={itemsToShow[i].description} />
