@@ -56,7 +56,7 @@ const panoramaSlice = createSlice({
         setChosenPortfolioItem: (state, action) => {state.chosenPortfolioItem = action.payload},
         setIframeLink: (state, action) =>{state.iframeLink = action.payload},
         setPersonalDataAgreementDisplay: (state, action) => {state.showPersonalDataAgreement = action.payload},
-        setFormDidSumit: (state, action) => {state.formDidSubmit = action.payload}
+        setFormDidSumit: (state, action) => {state.formDidSubmit = action.payload},
     },
     extraReducers: (builder) => {
         builder 

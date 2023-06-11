@@ -8,6 +8,7 @@ import PortfolioPage from '../portfolio/PortfolioPage';
 import MainPanoramaBg from '../photoSphere/PhotoSphere';
 import Contacts from '../contacts/Contacts';
 import SinglePortfolioPage from '../singlePortfolioPage/SinglePortfolioPage';
+import About from '../about/About';
 
 import './app.scss';
 
@@ -45,6 +46,7 @@ const App = () => {
           <animated.div style={props}>
             <Routes location={item}>
               <Route path='/' element={<Main />} />
+              <Route path='/about' element={<About />} />
               <Route path='/portfolio' element={<PortfolioPage />} />
               <Route path='/contacts' element={<Contacts />} />
               <Route path='/portfolio/:id' element={<SinglePortfolioPage />} />
