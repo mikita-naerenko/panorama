@@ -9,6 +9,7 @@ import MainPanoramaBg from '../photoSphere/PhotoSphere';
 import Contacts from '../contacts/Contacts';
 import SinglePortfolioPage from '../singlePortfolioPage/SinglePortfolioPage';
 import About from '../about/About';
+import PricesAndServices from '../pricesAndServices/PricesAndServices';
 
 import './app.scss';
 
@@ -47,6 +48,7 @@ const App = () => {
             <Routes location={item}>
               <Route path='/' element={<Main />} />
               <Route path='/about' element={<About />} />
+              <Route path='/pricesAndServices' element={<PricesAndServices />} />
               <Route path='/portfolio' element={<PortfolioPage />} />
               <Route path='/contacts' element={<Contacts />} />
               <Route path='/portfolio/:id' element={<SinglePortfolioPage />} />

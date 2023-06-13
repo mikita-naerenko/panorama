@@ -38,10 +38,10 @@ const PopUpMenu = () => {
                         <span className='popup-menu__title' >о компании</span>
                 </li>
             </Link>
-            <Link to={'/precesAndServices'}
-                  onClick={() => {dispatch(setCurrentPage('precesAndServices'))}}>
+            <Link to={'/pricesAndServices'}
+                  onClick={() => {dispatch(setCurrentPage('pricesAndServices'))}}>
                 <li className='popup-menu__item'>
-                        <svg width="30" height="40" viewBox="33 33 40 40" fill={currentPage === 'precesAndServices' ? 'black' : 'white'} xmlns="http://www.w3.org/2000/svg">
+                        <svg width="30" height="40" viewBox="33 33 40 40" fill={currentPage === 'pricesAndServices' ? 'black' : 'white'} xmlns="http://www.w3.org/2000/svg">
                                 <g filter="url(#filter0_d_36_77)">
                                 <path d="M45.2455 30V35.1186H39.5569C34.3992 35.1186 30.0758 38.0362 30.0758 41.5169V44.0762C30.0758 47.5568 33.4132 50.4232 38.3433 51.2934L57.7605 54.6717C58.8224 54.8764 60.3393 56.1561 60.3393 56.9238V59.4831C60.3393 60.1998 59.505 60.7628 58.4431 60.7628H39.481C38.5709 60.7628 37.8882 60.5581 37.5848 60.4557V55.6442H30V60.7628C30 62.5031 31.517 63.9875 33.3373 64.7553C35.0818 65.5743 37.2814 65.8814 39.481 65.8814H45.1697V71H52.7545V65.8814H58.4431C63.6766 65.8814 67.9241 63.015 67.9241 59.4831V56.9238C67.9241 53.4432 64.5868 50.5768 59.6567 49.7066L40.2395 46.3283C39.1776 46.1236 37.6607 44.8439 37.6607 44.0762V41.5169C37.6607 40.8002 38.495 40.2372 39.5569 40.2372H58.519C59.3533 40.2372 60.1118 40.4419 60.4152 40.5443V45.3558H68V40.2372C68 38.4969 66.483 37.0125 64.6627 36.2447C62.9182 35.4257 60.7186 35.1186 58.519 35.1186H52.8303V30L45.2455 30Z" fill="inherit" transform="scale(1.08)"/>
                                 </g>

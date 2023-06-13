@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.pricesAndServices {
+    padding-left: 15%;
+    padding-right: 5%;
+    padding-bottom: 2%;
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    background-color: #212020;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
