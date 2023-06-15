@@ -13,3 +13,71 @@
     top: 0;
     left: 0;
 }
+
+
+.service__item {
+
+}
+
+.service__title {
+    font-size: 16px;
+
+    text-transform: uppercase;
+    
+}
+
+.service__list {
+    padding-top: 20px;
+}
+.service__list > :last-child {
+    margin-bottom: 0;
+}
+
+.service__list-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.service__button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: $tablet-width) {
+
+}
+
+@media (min-width: $desktop-width) {
+    .pricesAndServices {
+        padding-left: 10%;
+        padding-right: 2%;
+        &__list {
+                display: flex;
+                flex-wrap: wrap;
+        }
+    }
+
+    .service__title {
+        font-size: 24px;
+
+    }
+
+    .service__list-item {
+        position: relative;
+        padding-left: 45px;
+        margin-bottom: 25px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .service__item {
+        margin-right: 5%;
+        padding-bottom: 20px;
+        width: 45%;
+    }
+}

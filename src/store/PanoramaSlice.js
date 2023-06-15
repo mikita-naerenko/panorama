@@ -7,10 +7,12 @@ const initialState = {
     portfolioLoadingStatus: 'idle',
     filtersLoadingStatus: 'idle',
     cityLoadingStatus: 'idle',
+    servicesLoadingStatus: 'idle',
     activeFilter: 'all',
     filters: [],
     portfolio: [],
     city: [],
+    services: [],
     filteredPortfolio: [],
     chosenPortfolioItem: {},
     showedItems: 6,
@@ -41,6 +43,14 @@ export const fetchCity = createAsyncThunk(
     () => {
         const {request} = useHttp();
         return request("http://localhost:3004/city");
+    }
+)
+
+export const fetchServices = createAsyncThunk(
+    'services/fetchServices',
+    () => {
+        const {request} = useHttp();
+        return request("http://localhost:3004/services");
     }
 )
 
@@ -81,6 +91,14 @@ const panoramaSlice = createSlice({
                     state.city = action.payload
                 })
                 .addCase(fetchCity.rejected, state => {state.cityLoadingStatus = 'error'})
+
+                .addCase(fetchServices.pending, state => {state.servicesLoadingStatus = 'loading'})
+                .addCase(fetchServices.fulfilled, (state, action) => {
+                    state.servicesLoadingStatus = 'idle';
+                    state.services = action.payload
+                })
+                .addCase(fetchServices.rejected, state => {state.servicesLoadingStatus = 'error'})
+
                 .addDefaultCase(() => {})
     }
 });
@@ -96,6 +114,9 @@ export const {
     portfolioFetching,
     portfolioFetched,
     portfolioFetchingError,
+    servicesFetching,
+    servicesFetched,
+    servicesFetchingError,
     filtersFetching,
     filtersFetched,
     filtersFetchingError,

@@ -1,18 +1,11 @@
-import iconBrush from './assets/icon_brush_.png';
-import iconCalendar from './assets/icon_calendar_.png';
-import iconCamera from './assets/icon_cameraslr_.png';
-import iconLink from './assets/icon_external_link_.png';
-import iconImage from './assets/icon_image_.png';
-import iconMarker from './assets/icon_map_marker_.png';
-import iconMap from './assets/icon_map_.png';
-import iconReload from './assets/icon_reload_.png';
-import iconShare from './assets/icon_share_boxed_.png';
-import iconVideo from './assets/icon_video_.png';
 
-import { useDispatch } from 'react-redux';
+
+import styled from 'styled-components';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { setCurrentPage } from '../../store/PanoramaSlice';
-import { Link } from 'react-router-dom';
+import { setCurrentPage, fetchServices } from '../../store/PanoramaSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 import PopUpMenu from '../popUpMenu/PopUpMenu';
 import CTA from '../cta/CTA';
@@ -20,15 +13,59 @@ import ButtonMainAction from '../buttonMainAction/ButtonMainAction';
 
 import './pricesAndServices.scss';
 
-
+const ServiceListItem = styled.li`
+        &::before {
+            // content: url(${(props) => props.iconPath});
+            content: '';
+            background-image: url(${(props) => props.iconPath});
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            @media (min-width: 1200px) {
+                width: 25px;
+                height: 25px;
+              }
+        }
+        `;
 
 const PricesAndServices = () => {
 
     const dispatch = useDispatch();
+    const { services } = useSelector(state => state.panorama);
+   
 
     useEffect(() => {
         dispatch(setCurrentPage('pricesAndServices'));
+        dispatch(fetchServices());
+
     },[])
+
+
+    const renderServices  = (arr) => {
+        if (arr.length > 0 ) return arr.map((el) => {
+           return <li className='service__item' key={uuidv4()}>
+                    <h3 className='service__title'>{el.name}</h3>
+
+                    <ul className='service__list'>
+                        {el.service.map(el => {
+                           return <ServiceListItem className={'service__list-item'} iconPath={el.iconPath} key={uuidv4()}>
+                           {el.name}
+                         </ServiceListItem>
+                        //    <li className='service__list-item' key={uuidv4()}>{el.name}</li>
+                        })}
+                    </ul>
+                    <div className='service__button-container'><ButtonMainAction type='button' to='/contacts' title={`от ${el.cost} руб.`}/></div>
+                    
+                </li>
+        })
+    }
+
+    const servicesList = renderServices(services);
 
     return (
         <main className='pricesAndServices'>
@@ -37,36 +74,7 @@ const PricesAndServices = () => {
             <section>
             <h2 className='current-page-name'>услуги и цены</h2> 
             <ul className='pricesAndServices__list'>
-                <li className='service__item'>
-                    <h3 className='service__title'>Создание виртуального 3Д-тура для карт Яндекс и Google</h3>
-                    <ul className='service__list'>
-                        <li>съемка и размещение панорам на картах Google</li>
-                        <li>съемка и размещение панорам на картах Яндекс</li>
-                        <li>Съемка новых и обновление старых уличных панорам на картах Яндекс</li>
-                    </ul>
-                    <ButtonMainAction type='button' to='/contacts' title='от 1000 руб.'/>
-                    
-                </li>
-                <li className='service__item'>
-                    <h3 className='service__title'>Аэро фото и видеосъёмка</h3>
-                    <ul className='service__list'>
-                        <li>Видеосъемка с воздуха с помощью коптера</li>
-                        <li>создание интерактивной карты</li>
-                        <li>Художественная фотосъёмка</li>
-                        <li>для презентации объектов недвижимости</li>
-                    </ul>
-                    <ButtonMainAction type='button' to='/contacts' title='от 1000 руб.'/>
-                </li>
-                <li className='service__item'>
-                    <h3 className='service__title'>Предметная фотосъемка товаров в 360 градусов (3D)</h3>
-                    <ul className='service__list'>
-                        <li>Предметная видеосъёмка 360 любых товаров</li>
-                        <li>Выездная съёмка на территории заказчика</li>
-                        <li>Ретушь дефектов товара</li>
-                        <li>Адаптация размера фото под маркетплейс</li>
-                    </ul>
-                    <ButtonMainAction type='button' to='/contacts' title='от 1000 руб.'/>
-                </li>
+                {servicesList}
             </ul>
             </section>
         </main>

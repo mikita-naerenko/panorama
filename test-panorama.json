@@ -608,259 +608,69 @@
     }
   ],
   "data": [
+  ],
+  "services": [
     {
-      "id": "3ef6dbef-d51e-4df3-800e-2cd5d626cca7",
-      "name": "Thor",
-      "comment": "",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "Санкт-Петербург",
-      "video": true,
-      "aero": false,
-      "tour3D": false
+      "name": "Создание виртуального 3Д-тура для карт Яндекс и Google",
+      "service": [
+        {
+          "name": "съемка и размещение панорам на картах Google",
+          "iconPath": "/assets/icon_map_marker_.png"
+        },
+        {
+          "name": "съемка и размещение панорам на картах Яндекс",
+          "iconPath": "./assets/icon_map_marker_.png"
+        },
+        {
+          "name": "Съемка новых и обновление старых уличных панорам на картах Яндекс",
+          "iconPath": "./assets/icon_reload_.png"
+        }
+      ],
+      "cost": "1000"
     },
     {
-      "id": "a3a37a1b-2fd6-4674-abbe-4433a25db01c",
-      "name": "Thor",
-      "comment": "",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "Москва",
-      "video": true,
-      "aero": false,
-      "tour3D": false
+      "name": "Аэро фото и видеосъёмка",
+      "service": [
+        {
+          "name": "Видеосъемка с воздуха с помощью коптера",
+          "iconPath": "./assets/icon_video_.png"
+        },
+        {
+          "name": "создание интерактивной карты",
+          "iconPath": "./assets/icon_map_.png"
+        },
+        {
+          "name": "Художественная фотосъёмка",
+          "iconPath": "./assets/icon_image_.png"
+        },
+        {
+          "name": "для презентации объектов недвижимости",
+          "iconPath": "./assets/icon_calendar_.png"
+        }
+      ],
+      "cost": "1000"
     },
     {
-      "id": "24ee1172-f795-4883-9e6d-3923b7c4d111",
-      "name": "Thor",
-      "comment": "",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "",
-      "video": true,
-      "aero": false,
-      "tour3D": false
-    },
-    {
-      "id": "fe09a3d3-2b16-48fd-89b8-69678730f7e8",
-      "name": "Thor",
-      "comment": "",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "",
-      "services": [
-        {}
-      ]
-    },
-    {
-      "id": "faafb757-3a49-493a-af5c-7862c3271b44",
-      "name": "Nikita",
-      "comment": "",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "",
-      "services": [
-        {}
-      ]
-    },
-    {
-      "id": "ffc88fd5-80e7-4726-9f24-311c6fb7f488",
-      "name": "Nikita",
-      "comment": "",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "Москва",
-      "services": [
-        "tour3DforMap",
-        "tour3DforWebsite",
-        "aeroPanorama",
-        "interiorPhotography",
-        "yandexFood",
-        "aeroPhotoAndVideo",
-        "createVideo",
-        "subjectPhotography",
-        "city",
-        "name",
-        "email",
-        "phone",
-        "text",
-        "agree"
-      ]
-    },
-    {
-      "id": "e1497b90-4c9c-4270-8a52-98413846898d",
-      "name": "Thor",
-      "comment": "",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "",
-      "services": [
-        [
-          "tour3DforMap",
-          true
-        ],
-        [
-          "tour3DforWebsite",
-          false
-        ],
-        [
-          "aeroPanorama",
-          false
-        ],
-        [
-          "interiorPhotography",
-          false
-        ],
-        [
-          "yandexFood",
-          false
-        ],
-        [
-          "aeroPhotoAndVideo",
-          false
-        ],
-        [
-          "createVideo",
-          false
-        ],
-        [
-          "subjectPhotography",
-          true
-        ],
-        [
-          "city",
-          ""
-        ],
-        [
-          "name",
-          "Thor"
-        ],
-        [
-          "email",
-          "tetropak555666@gmail.com"
-        ],
-        [
-          "phone",
-          "+821083178384"
-        ],
-        [
-          "text",
-          ""
-        ],
-        [
-          "agree",
-          true
-        ]
-      ]
-    },
-    {
-      "id": "c457faae-80c2-4b51-bbac-88c979946675",
-      "name": "Thor",
-      "comment": "",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "Москва",
-      "services": [
-        [
-          "tour3DforMap",
-          true
-        ],
-        [
-          "subjectPhotography",
-          true
-        ],
-        [
-          "agree",
-          true
-        ]
-      ]
-    },
-    {
-      "id": "009daf4e-8823-4d17-b41f-3718414f2f59",
-      "name": "Thor",
-      "comment": "",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "",
-      "services": [
-        [
-          "tour3DforMap",
-          true
-        ],
-        [
-          "agree",
-          true
-        ]
-      ]
-    },
-    {
-      "id": "bd784b81-936c-48be-a89c-fc6828d1be80",
-      "name": "Thor",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "Новосибирск",
-      "services": [
-        [
-          "tour3DforMap",
-          true
-        ],
-        [
-          "tour3DforWebsite",
-          true
-        ]
-      ]
-    },
-    {
-      "id": "ee339e32-9e52-4c3d-9efc-96e4f3b1c861",
-      "name": "Nikita",
-      "comments": "Test",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "Краснодар",
-      "services": [
-        [
-          "tour3DforMap",
-          true
-        ],
-        [
-          "tour3DforWebsite",
-          true
-        ],
-        [
-          "aeroPanorama",
-          true
-        ],
-        [
-          "createVideo",
-          true
-        ],
-        [
-          "subjectPhotography",
-          true
-        ]
-      ]
-    },
-    {
-      "id": "1fd836ec-69b0-499d-843f-a6c1986a3852",
-      "name": "Thor",
-      "comments": "Tests dfcdscsdc",
-      "phone": "+821083178384",
-      "email": "tetropak555666@gmail.com",
-      "city": "",
-      "services": [
-        [
-          "tour3DforMap",
-          true
-        ],
-        [
-          "tour3DforWebsite",
-          true
-        ],
-        [
-          "aeroPanorama",
-          true
-        ]
-      ]
+      "name": "Предметная фотосъемка товаров в 360 градусов (3D)",
+      "service": [
+        {
+          "name": "Предметная видеосъёмка 360 любых товаров",
+          "iconPath": "./assets/icon_cameraslr_.png"
+        },
+        {
+          "name": "сВыездная съёмка на территории заказчика",
+          "iconPath": "./assets/icon_share_boxed_.png"
+        },
+        {
+          "name": "Ретушь дефектов товара",
+          "iconPath": "./assets/icon_brush_.png"
+        },
+        {
+          "name": "Адаптация размера фото под маркетплейс",
+          "iconPath": "./assets/icon_external_link_.png"
+        }
+      ],
+      "cost": "1000"
     }
   ]
 }
