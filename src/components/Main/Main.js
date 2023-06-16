@@ -1,8 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
+import { useEffect } from 'react';
 
 import { menuChecked } from '../../store/PanoramaSlice';
 import ButtonCloseMenu from '../buttonCloseMenu/ButtonCloseMenu';
 import MainNav from '../mainNav/MainNav';
+import { setCurrentPage } from '../../store/PanoramaSlice';
 
 import logo from '../../assets/logo.svg';
 import mockButton from "../../assets/button-menu.svg"
@@ -15,6 +17,11 @@ const Main = () => {
     const { activeMenu } = useSelector(state => state.panorama);
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setCurrentPage('main'));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
     return (
         <main >    

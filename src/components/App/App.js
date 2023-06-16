@@ -1,18 +1,19 @@
 import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
 import { useTransition, animated } from '@react-spring/web';
 import { useSelector } from 'react-redux';
+import { lazy, Suspense } from 'react';
 
 
-import Main from '../Main/Main';
-import PortfolioPage from '../portfolio/PortfolioPage';
 import MainPanoramaBg from '../photoSphere/PhotoSphere';
-import Contacts from '../contacts/Contacts';
-import SinglePortfolioPage from '../singlePortfolioPage/SinglePortfolioPage';
-import About from '../about/About';
-import PricesAndServices from '../pricesAndServices/PricesAndServices';
 
 import './app.scss';
 
+const Main = lazy(() => import('../Main/Main'));
+const PortfolioPage = lazy(() => import('../portfolio/PortfolioPage'));
+const Contacts = lazy(() => import('../contacts/Contacts'));
+const SinglePortfolioPage = lazy(() => import('../singlePortfolioPage/SinglePortfolioPage'));
+const About = lazy(() => import('../about/About'));
+const PricesAndServices = lazy(() => import('../pricesAndServices/PricesAndServices'));
 
 
 
@@ -45,6 +46,7 @@ const App = () => {
               
               {transitions((props, item) => (
           <animated.div style={props}>
+            <Suspense>
             <Routes location={item}>
               <Route path='/' element={<Main />} />
               <Route path='/about' element={<About />} />
@@ -53,6 +55,7 @@ const App = () => {
               <Route path='/contacts' element={<Contacts />} />
               <Route path='/portfolio/:id' element={<SinglePortfolioPage />} />
             </Routes>
+            </Suspense>
           </animated.div>
         ))} 
 
